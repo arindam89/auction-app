@@ -1,6 +1,7 @@
-# 🏏 Auction App - IPL Style
 
-A modern, mobile-friendly auction application that runs locally in your browser. Perfect for organizing IPL-style player auctions with teams, players, and configurable pricing based on ratings.
+# 🏏 Auction App - IPL Style (Astro)
+
+A modern, mobile-friendly auction application built with Astro. Perfect for organizing IPL-style player auctions with teams, players, and configurable pricing based on ratings.
 
 ## ✨ Features
 
@@ -33,6 +34,7 @@ A modern, mobile-friendly auction application that runs locally in your browser.
 - Works offline
 
 ### 📱 Modern UI/UX
+- Built with Astro for optimal performance
 - Clean, professional design
 - Fully responsive and mobile-friendly
 - Tab-based navigation within auctions
@@ -43,10 +45,10 @@ A modern, mobile-friendly auction application that runs locally in your browser.
 ## 🚀 Getting Started
 
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- No installation or dependencies required!
+- Node.js 18 or higher
+- npm or yarn
 
-### Running the App
+### Installation
 
 1. Clone the repository:
 ```bash
@@ -54,22 +56,29 @@ git clone https://github.com/arindam89/auction-app.git
 cd auction-app
 ```
 
-2. Open `index.html` in your web browser:
-   - **Option 1**: Double-click the `index.html` file
-   - **Option 2**: Use a local web server:
-     ```bash
-     # Python 3
-     python -m http.server 8080
-     
-     # Python 2
-     python -m SimpleHTTPServer 8080
-     
-     # Node.js
-     npx http-server
-     ```
-   - **Option 3**: Use VS Code Live Server extension
+2. Install dependencies:
+```bash
+npm install
+```
 
-3. Start using the app! 🎉
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and visit `http://localhost:4321`
+
+### Build for Production
+
+To create a production build:
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` directory. You can preview the production build with:
+```bash
+npm run preview
+```
 
 ## 📖 How to Use
 
@@ -111,48 +120,45 @@ cd auction-app
 ## 🛠️ Technical Details
 
 ### Architecture
-- **Frontend**: Pure vanilla JavaScript (no frameworks)
+- **Framework**: Astro 5.x
+- **Frontend**: Vanilla JavaScript with Astro components
 - **Storage**: Browser localStorage API
-- **Design**: Single-page application (SPA) architecture
-- **Styling**: Custom CSS with CSS Grid and Flexbox
+- **Build**: Vite (integrated with Astro)
+- **Styling**: Scoped CSS with global styles
 
 ### File Structure
 ```
 auction-app/
-├── index.html      # Main HTML structure
-├── styles.css      # Responsive CSS styles
-├── app.js          # JavaScript application logic
-└── README.md       # Documentation
+├── src/
+│   ├── components/
+│   │   └── AuctionApp.js    # Main application logic
+│   ├── layouts/
+│   │   └── Layout.astro     # Base layout with global styles
+│   └── pages/
+│       └── index.astro      # Main page
+├── public/                  # Static assets
+├── astro.config.mjs         # Astro configuration
+├── package.json             # Dependencies and scripts
+└── tsconfig.json            # TypeScript configuration
 ```
 
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
 ### Browser Compatibility
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
+- Chrome 90+
+- Firefox 90+
+- Safari 15+
+- Edge 90+
 
 ### Data Storage
 All data is stored in localStorage as JSON:
 - Auctions with teams and players
 - Player photos encoded as base64 strings
 - Rating configurations
-
-## 🎨 Screenshots
-
-### Home View
-![Home View](https://github.com/user-attachments/assets/4920d8b3-34bc-45f1-8fb8-700a0180e252)
-
-### Create Auction
-![Create Auction](https://github.com/user-attachments/assets/44bbfe75-29f7-4f6c-a03b-704850e3a5af)
-
-### Auction Detail
-![Auction Detail](https://github.com/user-attachments/assets/dfcd1d44-209d-443d-af0e-91d944563e9e)
-
-### Add Player
-![Add Player](https://github.com/user-attachments/assets/0f56f6a4-81e0-4927-8ed6-c3be340e45e3)
-
-### Player Card
-![Player Card](https://github.com/user-attachments/assets/834655d0-699a-4e1b-bb18-df72e1d4bda7)
 
 ## 🔒 Privacy & Security
 
@@ -175,5 +181,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Inspired by IPL (Indian Premier League) auction format
-- Built with modern web standards
+- Built with [Astro](https://astro.build)
 - Designed for simplicity and ease of use
