@@ -1,0 +1,18 @@
+{
+  "name": "auction-app",
+  "version": "1.0.0",
+  "description": "Simple Auction App which runs locally and allows for IPL like auctions for players",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^5.15.8"
+  }
+}
