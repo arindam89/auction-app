@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction App - IPL Style</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-content">
+                <h1 class="app-title">🏏 Auction App</h1>
+                <button id="backBtn" class="btn btn-secondary" style="display: none;">← Back</button>
+            </div>
+        </nav>
+
+        <!-- Main Container -->
+        <main class="container">
+            <!-- Home View -->
+            <div id="homeView" class="view active">
+                <div class="header-section">
+                    <h2>Your Auctions</h2>
+                    <button id="createAuctionBtn" class="btn btn-primary">+ Create Auction</button>
+                </div>
+                <div id="auctionsList" class="auctions-list">
+                    <!-- Auctions will be populated here -->
+                </div>
+            </div>
+
+            <!-- Create/Edit Auction View -->
+            <div id="auctionFormView" class="view">
+                <h2 id="auctionFormTitle">Create Auction</h2>
+                <form id="auctionForm" class="form">
+                    <div class="form-group">
+                        <label for="auctionName">Auction Name</label>
+                        <input type="text" id="auctionName" required placeholder="e.g., IPL 2024">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Rating to Base Price Configuration</label>
+                        <div id="ratingPriceConfig" class="rating-config">
+                            <!-- Rating configurations will be added here -->
+                        </div>
+                        <button type="button" id="addRatingBtn" class="btn btn-secondary btn-sm">+ Add Rating Range</button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelAuctionBtn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Auction</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Auction Detail View -->
+            <div id="auctionDetailView" class="view">
+                <div class="auction-header">
+                    <h2 id="auctionDetailTitle"></h2>
+                    <button id="deleteAuctionBtn" class="btn btn-danger btn-sm">Delete Auction</button>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="teams">Teams</button>
+                    <button class="tab-btn" data-tab="players">Players</button>
+                </div>
+
+                <!-- Teams Tab -->
+                <div id="teamsTab" class="tab-content active">
+                    <div class="header-section">
+                        <h3>Teams</h3>
+                        <button id="createTeamBtn" class="btn btn-primary">+ Add Team</button>
+                    </div>
+                    <div id="teamsList" class="teams-list">
+                        <!-- Teams will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Players Tab -->
+                <div id="playersTab" class="tab-content">
+                    <div class="header-section">
+                        <h3>Players</h3>
+                        <button id="createPlayerBtn" class="btn btn-primary">+ Add Player</button>
+                    </div>
+                    <div id="playersList" class="players-list">
+                        <!-- Players will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Form View -->
+            <div id="teamFormView" class="view">
+                <h2 id="teamFormTitle">Add Team</h2>
+                <form id="teamForm" class="form">
+                    <div class="form-group">
+                        <label for="teamName">Team Name</label>
+                        <input type="text" id="teamName" required placeholder="e.g., Mumbai Indians">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teamBudget">Budget (in Lakhs)</label>
+                        <input type="number" id="teamBudget" required placeholder="e.g., 100" min="0" step="0.1">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelTeamBtn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Team</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Player Form View -->
+            <div id="playerFormView" class="view">
+                <h2 id="playerFormTitle">Add Player</h2>
+                <form id="playerForm" class="form">
+                    <div class="form-group">
+                        <label for="playerName">Player Name</label>
+                        <input type="text" id="playerName" required placeholder="e.g., Virat Kohli">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerRating">Rating (1-10)</label>
+                        <input type="number" id="playerRating" required placeholder="e.g., 9" min="1" max="10" step="0.1">
+                        <small id="basePriceIndicator" class="form-help">Base price will be calculated based on rating</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="playerPhoto">Player Photo</label>
+                        <div class="photo-upload">
+                            <input type="file" id="playerPhoto" accept="image/*" style="display: none;">
+                            <button type="button" id="uploadPhotoBtn" class="btn btn-secondary btn-sm">Choose Photo</button>
+                            <div id="photoPreview" class="photo-preview">
+                                <img id="photoPreviewImg" src="" alt="Preview" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="playerSpeciality">Speciality</label>
+                        <select id="playerSpeciality" required>
+                            <option value="">Select speciality</option>
+                            <option value="batsman">Batsman</option>
+                            <option value="bowler">Bowler</option>
+                            <option value="allrounder">All-rounder</option>
+                            <option value="wicketkeeper">Wicket-keeper</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancelPlayerBtn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Player</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

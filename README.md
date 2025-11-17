@@ -1,3 +1,4 @@
+
 # 🏏 Auction App - IPL Style (Astro)
 
 A modern, mobile-friendly auction application built with Astro. Perfect for organizing IPL-style player auctions with teams, players, and configurable pricing based on ratings.
